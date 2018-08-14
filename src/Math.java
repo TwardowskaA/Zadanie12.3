@@ -14,24 +14,27 @@ public class Math {
     }
 
 
-    public static void map(File file) throws FileNotFoundException {
-        Scanner scan = new Scanner(file);
-        int i = 1;
-        int x = scan.nextInt();
-        int powt = 0;
+    public static Map<Integer, Integer> counter(File file) throws FileNotFoundException {
         TreeMap<Integer, Integer> map = new TreeMap<>();
-        while (scan.hasNextInt()) {
-            map.put(i, scan.nextInt());
-            i++;
-            while (map.get(i).equals(x)) {
-                powt++;
+        try (Scanner scan = new Scanner(file)) {
+            while (scan.hasNextInt()) {
+                int x = scan.nextInt();
+                if (map.containsKey(x)) {
+                    int value = map.get(x);
+                    map.put(x, ++value);
+                } else {
+                    map.put(x, 1);
+                }
             }
         }
-
-        System.out.println(x + "-" + "ilość wystąpien:" + powt);
+        return map;
     }
-
-
 }
+
+
+
+
+
+
 
 

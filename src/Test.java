@@ -10,11 +10,11 @@ public class Test {
 
         File file  = Math.file("numbers.txt");
 
-        Math.map(file);
+        System.out.println(Math.counter(file));
 
 
 //       Math.counter(file);
-//        Math.counter(numbers);
+
 
 
     }
